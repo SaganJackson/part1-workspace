@@ -1,10 +1,16 @@
 public class Television {
 
-  private String brand;
+  private String brand; //field
   private int volume;
 
+//constructors are located after the fields and before the methods
+  /* public Television(String brand){
+    this.brand = brand;
+  }*/
+  //business methods first and then setters and getters
   public void turnOn(){
     // TODO: 9/1/2022
+    boolean isConnected = verifyInternetConnection();
     //sout = System.out.println();
     System.out.println("The " + brand + " television is on, with a volume of " + volume);
   }
@@ -28,6 +34,10 @@ public class Television {
 
   public void setVolume(int volume) {
     this.volume = volume;
+  }
+
+  private boolean verifyInternetConnection() {
+    return true;
   }
 
   public String toString(){
