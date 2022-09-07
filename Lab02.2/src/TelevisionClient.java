@@ -19,8 +19,9 @@ public class TelevisionClient {
 
     tv2.turnOn();
     tv2.turnOff();
-    System.out.printf("%d television instances created", Television.getInstanceCount());
+
     System.out.println(tv2);
+    System.out.printf("%d television instances created", Television.getInstanceCount());
 
     Television tv3 = new Television("LG");
 
