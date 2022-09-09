@@ -5,13 +5,14 @@ public class TelevisionClient {
     Television tv1 = new Television();
     tv1.setBrand("Samsung");
     tv1.setVolume(125);
+    tv1.setDisplay(DisplayType.CRT);
 
 
     tv1.turnOn();
     tv1.turnOff();
 
     System.out.println(tv1);
-    System.out.printf("%d television instances created", Television.getInstanceCount());
+    System.out.printf("%d television instance created. %n", Television.getInstanceCount());
 
     Television tv2 = new Television("Sony", 50);
     //tv2.setBrand("Sony");
@@ -21,7 +22,7 @@ public class TelevisionClient {
     tv2.turnOff();
 
     System.out.println(tv2);
-    System.out.printf("%d television instances created", Television.getInstanceCount());
+    System.out.printf("%d television instances created. %n", Television.getInstanceCount());
 
     Television tv3 = new Television("LG");
 
@@ -29,7 +30,8 @@ public class TelevisionClient {
     tv3.turnOff();
 
     //System.out.println(tv1.toString());
-
+Television tv = new Television("Sony", 40, DisplayType.OLED);
+    System.out.println(tv);
 
     System.out.println(tv3);
     System.out.printf("%d television instances created", Television.getInstanceCount());

@@ -7,7 +7,8 @@ public class Television {
 
   private String brand; //field
   private int volume;
-
+  private DisplayType display = DisplayType.LED;
+//Name the field display, and initialize it to an LED display type
 
   //constructors are located after the fields and before the methods
   public Television() {
@@ -23,6 +24,14 @@ public class Television {
     //this.brand = brand;
     this(brand);
     setVolume(volume);
+
+  }
+
+  public Television(String brand, int volume, DisplayType display) {
+    //this.brand = brand;
+    this(brand, volume);
+
+    setDisplay(display);
 
   }
 
@@ -61,7 +70,7 @@ public class Television {
      default:
        System.out.printf("%s is not a valid brand; only Samsung, LG, Sony, and Toshiba are allowed. %n", brand);
    }
-//s is a placeholder for a string. d is for a decimal representation of an integer
+//s is a placeholder for a string. d is for a decimal representation of an integer. %n is new line
   }
 
   public int getVolume() {
@@ -78,11 +87,19 @@ public class Television {
     }
   }
 
+  public DisplayType getDisplay() {
+    return display;
+  }
+
+  public void setDisplay(DisplayType display) {
+    this.display = display;
+  }
+
   private boolean verifyInternetConnection() {
     return true;
   }
 
   public String toString() {
-    return "Television: brand=" + brand + ", volume=" + volume;
+    return "Television: brand=" + brand + ", volume=" + volume + ", display=" + display;
   }
 }
