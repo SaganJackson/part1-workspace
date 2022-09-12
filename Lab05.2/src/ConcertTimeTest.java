@@ -12,8 +12,8 @@ import java.time.*;
 class ConcertTimeTest {
 
     public static void main(String[] args) {
-        // listAvailableZoneIds();
-        // testLiveConcert();
+        listAvailableZoneIds();
+         //testLiveConcert();
     }
 
     /*
