@@ -11,32 +11,40 @@ import java.time.*;
 
 class ConcertTimeTest {
 
-    public static void main(String[] args) {
-        listAvailableZoneIds();
-         //testLiveConcert();
-    }
+  public static void main(String[] args) {
+    //listAvailableZoneIds();
+    testLiveConcert();
+  }
 
-    /*
-     * Shows all defined ZoneIds, which will help with the concert problem.
-     * You'll need to know the names of the ZoneIds for Toronto and Perth.
-     */
-    public static void listAvailableZoneIds() {
-        Set<String> rawZoneIds = ZoneId.getAvailableZoneIds();  // unsorted, arbitrary order
-        SortedSet<String> zoneIds = new TreeSet<>(rawZoneIds);  // sorted by String natural order
+  /*
+   * Shows all defined ZoneIds, which will help with the concert problem.
+   * You'll need to know the names of the ZoneIds for Toronto and Perth.
+   */
+  public static void listAvailableZoneIds() {
+    Set<String> rawZoneIds = ZoneId.getAvailableZoneIds();  // unsorted, arbitrary order
+    SortedSet<String> zoneIds = new TreeSet<>(rawZoneIds);  // sorted by String natural order
 
-        for (String zoneId : zoneIds) {
-            System.out.println(zoneId);
-        }
+    for (String zoneId : zoneIds) {
+      System.out.println(zoneId);
     }
+  }
 
-    /**
-     * OPTIONAL: your favorite band is playing live in Toronto, Canada on June 18, 2020, at 7pm.
-     * You live in Perth, Australia, and want to watch a live simulcast via the web.
-     * When are you watching it?
-     *
-     * RESULT: 
-     */
-    public static void testLiveConcert() {
-        // TODO
-    }
+  /**
+   * OPTIONAL: your favorite band is playing live in Toronto, Canada on June 18, 2020, at 7pm. You
+   * live in Perth, Australia, and want to watch a live simulcast via the web. When are you watching
+   * it?
+   * <p>
+   * RESULT:
+   */
+  public static void testLiveConcert() {
+    // TODO
+
+    ZonedDateTime torontoCanada = ZonedDateTime.of(LocalDateTime.of(2020, 6, 18, 19, 0),
+        ZoneId.of("Canada/Eastern"));
+
+    ZonedDateTime perthAustralia = torontoCanada.withZoneSameInstant(ZoneId.of("Australia/Perth"));
+
+    System.out.println(torontoCanada);
+    System.out.println(perthAustralia);
+  }
 }
