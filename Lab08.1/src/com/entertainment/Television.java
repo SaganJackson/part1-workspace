@@ -23,15 +23,21 @@ public class Television {
 
     private static int instanceCount = 0;
 
+
     public static int getInstanceCount() {
         return instanceCount;
     }
 
+
+
     // PROPERTIES or ATTRIBUTES, generally called "fields" or "instance variables"
     // these live *inside each instance*
+    private final Tuner tuner = new Tuner(); //initialized tuner. field declaration with assignment
+
     private String brand;
     private int volume;
     private DisplayType display = DisplayType.LED;
+
 
     // CONSTRUCTORS - special methods that get called when the client says "new"
     public Television() {
@@ -54,6 +60,17 @@ public class Television {
     }
 
     // BUSINESS METHODS (functions) - what operations can com.entertainment.Television objects do?
+    public void changeChannel(String channel) {
+        tuner.setChannel(channel); //delegation
+    }
+
+
+    public String getCurrentChannel() {
+        return tuner.getChannel();
+    }
+
+
+    
     public void turnOn() {
         boolean isConnected = verifyInternetConnection();
         System.out.println("Turning on your " + brand + " television to volume " + volume);
@@ -121,6 +138,7 @@ public class Television {
         return "com.entertainment.Television" +
                 ": brand=" + getBrand() +
                 ", volume=" + getVolume() +
-                ", display=" + getDisplay();
+                ", display=" + getDisplay() +
+                 ", channel=" + getCurrentChannel();
     }
 }
