@@ -1,0 +1,66 @@
+package com.hr.personnel;
+
+import gov.irs.TaxPayer;
+import java.time.LocalDate;
+
+public class HourlyEmployee extends Employee {
+
+  private double rate;
+  private double hours;
+
+  public HourlyEmployee() {
+  }
+
+  public HourlyEmployee(String name, LocalDate hireDate) {
+    super(name, hireDate);
+  }
+
+  public HourlyEmployee(String name, LocalDate hireDate, double rate, double hours) {
+    this(name, hireDate);
+    setRate(rate);
+    setHours(hours);
+
+  }
+
+
+  public void pay() {
+    System.out.printf("%s is paid hourly for a total of %,.2f%n", getName(),
+        getHours() * getRate());
+    //System.out.println(getName() + " is paid hourly " + getRate());
+  }
+
+  @Override
+  public void payTaxes() {
+    double taxes = rate * getHours() * HOURLY_TAX_RATE;
+    System.out.println(getName() + " paid taxes of " + taxes);
+  }
+
+  public double getRate() {
+    return rate;
+  }
+
+  public void setRate(double rate) {
+    this.rate = rate;
+  }
+
+  public double getHours() {
+    return hours;
+  }
+
+  public void setHours(double hours) {
+    this.hours = hours;
+  }
+
+  @Override
+  public String toString() {
+//    return super.toString() +
+//        ", rate=" + rate + ", hours=" + hours;
+    //or
+    return String.format("%s, rate=%.2f, hours=%.1f", super.toString(), getRate(), getHours());
+    //.2f means two digits after decimal point
+  }
+
+  //TODO: Declare and implement a constructor that takes name, hireDate, rate, and hours.
+  //TODO: Generate setters and getters for rate and hours.
+  //TODO: Override toString
+}
