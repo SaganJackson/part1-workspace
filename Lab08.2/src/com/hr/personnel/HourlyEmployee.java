@@ -21,6 +21,12 @@ public class HourlyEmployee extends Employee {
 
   }
 
+
+  public void pay() {
+    System.out.printf("%s is paid hourly for a total of %,.2f%n", getName(), getHours() * getRate());
+    //System.out.println(getName() + " is paid hourly " + getRate());
+  }
+
   public double getRate() {
     return rate;
   }
@@ -39,8 +45,11 @@ public class HourlyEmployee extends Employee {
 
   @Override
   public String toString() {
-    return super.toString() +
-        ", rate=" + getRate() + ", hours=" + getHours();
+//    return super.toString() +
+//        ", rate=" + rate + ", hours=" + hours;
+    //or
+    return String.format("%s, rate=%.2f, hours=%.1f", super.toString(), getRate(), getHours());
+    //.2f means two digits after decimal point
   }
 
   //TODO: Declare and implement a constructor that takes name, hireDate, rate, and hours.
