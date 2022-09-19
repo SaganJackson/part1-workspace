@@ -65,7 +65,7 @@ public abstract class Employee
 
     //return String.format("%s: name=%s, hireDate=%s", getClass().getSimpleName(), getName(), getHireDate());
     // or
-    return String.format("%s: name=%s, hireDate=%s", getClass().getName(), getName(),
+    return String.format("%s: name=%s, hireDate=%s", getClass().getSimpleName(), getName(),
         getHireDate());
   }
 }
